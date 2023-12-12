@@ -94,6 +94,10 @@ jobs:
 
     - name: Terraform Plan
       run: terraform plan -input=false
+    
+    - name: Terraform Apply
+      if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+      run: terraform apply -auto-approve -input=false
 
   terraform_webserver:
     name: "Terraform Webserver"
