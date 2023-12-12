@@ -58,10 +58,10 @@ jobs:
     name: 'Terraform Network'
     runs-on: ubuntu-latest
     environment: staging
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./networks
+    # defaults:
+    #   run:
+    #     shell: bash
+    #     working-directory: /terraform/networks
 
     steps:
     - name: Checkout
@@ -85,10 +85,10 @@ jobs:
     name: "Terraform Webserver"
     runs-on: ubuntu-latest
     needs: terraform_network
-    defaults:
-      run:
-        shell: bash
-        working-directory: ./webservers
+    # defaults:
+    #   run:
+    #     shell: bash
+    #     working-directory: ./webservers
 
     steps:
     - name: Checkout
