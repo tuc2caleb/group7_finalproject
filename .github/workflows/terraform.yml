@@ -72,6 +72,9 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
+    - name: Print Working Directory
+      run:   pwd
+
     - name: Terraform Init
       run: terraform init
 
