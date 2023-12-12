@@ -61,7 +61,7 @@ jobs:
     defaults:
       run:
         shell: bash
-        working-directory: /terraform/networks
+        working-directory: ${{ github.workspace }}/terraform/networks
 
     steps:
     - name: Checkout
@@ -72,8 +72,8 @@ jobs:
       with:
         cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-    - name: Print Working Directory
-      run:   pwd
+    - name: Navigate to Networks Directory
+      run:  cd ${{ github.workspace }}/terraform/networks
 
     - name: Terraform Init
       run: terraform init
