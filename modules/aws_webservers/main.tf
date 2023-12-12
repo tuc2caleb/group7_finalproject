@@ -25,7 +25,7 @@ data "aws_ami" "latest_amazon_linux" {
 data "terraform_remote_state" "public_subnet" { // This is to use Outputs from Remote State
   backend = "s3"
   config = {
-    bucket = "acs-730-assignment-final"            // Bucket from where to GET Terraform State
+    bucket = "acs-730-assignment"            // Bucket from where to GET Terraform State
     key    = "dev/network/terraform.tfstate" // Object name in the bucket to GET Terraform State
     region = "us-east-1"                     // Region where bucket created
   }
@@ -35,7 +35,7 @@ data "terraform_remote_state" "public_subnet" { // This is to use Outputs from R
 data "terraform_remote_state" "private_subnet" { // This is to use Outputs from Remote State
   backend = "s3"
   config = {
-    bucket = "acs-730-assignment-final"            // Bucket from where to GET Terraform State
+    bucket = "acs-730-assignment"            // Bucket from where to GET Terraform State
     key    = "dev/network/terraform.tfstate" // Object name in the bucket to GET Terraform State
     region = "us-east-1"                     // Region where bucket created
   }
