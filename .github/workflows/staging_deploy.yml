@@ -3,15 +3,15 @@ name: "Terraform - Staging"
 on:
   push:
     branches:
-    - dev
+      - dev
     paths:
-    - networks
+      - networks/**
 
   pull_request:
     branches:
-    - staging
-    paths: 
-    - networks
+      - staging
+    paths:
+      - networks/**
 
 jobs:
   terraform_network:
@@ -31,7 +31,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Change to Network Directory
-        run: cd terraform/network
+        run: cd terraform/networks
 
       - name: Terraform Init
         id: init
@@ -64,7 +64,7 @@ jobs:
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
       - name: Change to Webserver Directory
-        run: cd terraform/webserver
+        run: cd terraform/webservers
 
       - name: Terraform Init
         id: init
