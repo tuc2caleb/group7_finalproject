@@ -84,6 +84,7 @@ jobs:
   terraform_webserver:
     name: "Terraform Webserver"
     runs-on: ubuntu-latest
+    environment: staging
     needs: terraform_network
     defaults:
       run:
