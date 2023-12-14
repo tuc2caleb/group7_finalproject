@@ -1,5 +1,5 @@
 ---
-- hosts: G7-Prod-WebServers
+- hosts: tag_Group7
 
 
   gather_facts: False
