@@ -1,8 +1,8 @@
-[G7-dev-WebServers]
+[G7dev-ws]
 
 Group7-dev-Webserver-3 ansible_host=34.200.218.14 ansible_user=ec2-user ansible_ssh_private_key_file=../modules/aws_webservers/Group7
 Group7-dev-Webserver-4 ansible_host=54.165.201.152 ansible_user=ec2-user ansible_ssh_private_key_file=../modules/aws_webservers/Group7
 
 [servers_all:children]
 
-G7-dev-WebServers
+G7dev-ws
