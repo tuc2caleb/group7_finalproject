@@ -1,10 +1,4 @@
 # Step 10 - Add output variables
-
-
-# output "web_eip" {
-#   value = aws_eip.static_eip.public_ip
-# }
-
 output "webserver_vm1_subnet1"{
   
 value = aws_instance.public_webservers_vm1.public_ip
