@@ -46,18 +46,19 @@ name: 'Terraform'
 
 on:
   push:
-    branches: [ "dev" ]
+    branches: [ "dev", "prod" ]
   pull_request:
-    branches: ["staging"]
+    branches: ["dev", "prod"]
 
 permissions:
   contents: read
+  pull-requests: write
 
 jobs:
   terraform_network:
     name: 'Terraform Network'
     runs-on: ubuntu-latest
-    environment: staging
+    environment: prod
     defaults:
       run:
         shell: bash
@@ -96,13 +97,13 @@ jobs:
       run: terraform plan -input=false
     
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false
 
   terraform_webserver:
     name: "Terraform Webserver"
     runs-on: ubuntu-latest
-    environment: staging
+    environment: prod
     needs: terraform_network
     defaults:
       run:
@@ -132,5 +133,5 @@ jobs:
       # On push to "prod", build or change infrastructure according to Terraform configuration files
       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
     - name: Terraform Apply
-      if: github.ref == 'refs/heads/dev' && github.event_name == 'push'
+      if: github.ref == 'refs/heads/prod' && github.event_name == 'push'
       run: terraform apply -auto-approve -input=false

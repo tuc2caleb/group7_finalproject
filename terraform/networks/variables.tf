@@ -37,7 +37,7 @@ variable "vpc_cidr" {
 
 # Variable to signal the current environment 
 variable "env" {
-  default     = "Dev"
+  default     = "prod"
   type        = string
   description = "Deployment Environment"
 }

@@ -7,13 +7,11 @@ name: tfsec
 
 on:
   push:
-    branches: [ "dev"]
-    # paths: 
-    # - dev/*
+    branches: [ "prod"]
+    
   pull_request:
-    branches: [ "staging" ]
-    # paths: 
-    # - dev/*
+    branches: [ "prod" ]
+ 
 
 jobs:
   tfsec_tflint_staging:

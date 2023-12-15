@@ -28,7 +28,7 @@ variable "prefix" {
 
 # Variable to signal the current environment 
 variable "env" {
-  default     = "dev"
+  default     = "prod"
   type        = string
   description = "Deployment Environment"
 }
